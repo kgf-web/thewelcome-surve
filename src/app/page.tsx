@@ -105,11 +105,11 @@ export default function SurveyPage() {
     number: string,
   ) => (
     <fieldset className="space-y-4">
-      <legend className="flex items-start gap-2 text-base font-semibold text-white">
-        <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-400/90 text-sm font-bold text-[#05060f]">
+      <legend className="flex items-start gap-2 text-base font-semibold text-slate-900">
+        <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-800">
           {number}
         </span>
-        <span className="leading-6 text-slate-200">{question}</span>
+        <span className="leading-6 text-slate-700">{question}</span>
       </legend>
       <div className="grid gap-3 md:grid-cols-2">
         {options.map(option => {
@@ -117,8 +117,8 @@ export default function SurveyPage() {
           return (
             <label
               key={option}
-              className={`group relative flex cursor-pointer items-start gap-3 rounded-2xl border border-slate-800/80 bg-[#0b0d18]/80 p-4 shadow-sm transition-all duration-200 hover:border-emerald-400/60 hover:shadow-lg ${
-                isChecked ? 'border-emerald-400/70 bg-emerald-500/10 ring-2 ring-emerald-500/30' : ''
+              className={`group relative flex cursor-pointer items-start gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition-all duration-200 hover:border-emerald-300 hover:shadow-lg ${
+                isChecked ? 'border-emerald-400 bg-emerald-50 ring-2 ring-emerald-200' : ''
               }`}
             >
               <input
@@ -127,9 +127,9 @@ export default function SurveyPage() {
                 value={option}
                 checked={isChecked}
                 onChange={e => setter(e.target.value)}
-                className="mt-1 h-4 w-4 cursor-pointer rounded-full border-slate-600 bg-[#05060f] text-emerald-400 focus:ring-emerald-400"
+                className="mt-1 h-4 w-4 cursor-pointer rounded-full border-slate-300 text-emerald-500 focus:ring-emerald-400"
               />
-              <span className={`text-sm leading-relaxed ${isChecked ? 'text-white font-medium' : 'text-slate-300'}`}>
+              <span className={`text-sm leading-relaxed ${isChecked ? 'text-slate-900 font-medium' : 'text-slate-600'}`}>
                 {option}
               </span>
             </label>
@@ -140,11 +140,11 @@ export default function SurveyPage() {
   );
 
   const FormSection = ({ title, description, children }: { title: string; description: string; children: ReactNode }) => (
-    <section className="space-y-6 rounded-3xl border border-white/10 bg-white/[0.03] p-6 shadow-[0_25px_50px_-40px_rgba(16,163,127,0.65)] backdrop-blur-xl">
+    <section className="space-y-6 rounded-3xl border border-white/60 bg-white/90 p-6 shadow-xl backdrop-blur-sm">
       <header className="space-y-2">
-        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-300/60">Survey Part</p>
-        <h2 className="text-2xl font-semibold text-white">{title}</h2>
-        <p className="text-sm leading-relaxed text-slate-300">{description}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-600/70">Survey Part</p>
+        <h2 className="text-2xl font-semibold text-slate-900">{title}</h2>
+        <p className="text-sm leading-relaxed text-slate-600">{description}</p>
       </header>
       <div className="space-y-8">{children}</div>
     </section>
@@ -162,13 +162,13 @@ export default function SurveyPage() {
     children: ReactNode;
   }) => (
     <div className="space-y-3">
-      <label htmlFor={number} className="flex items-start gap-3 text-base font-semibold text-white">
-        <span className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-emerald-400/90 text-sm font-bold text-[#05060f]">
+      <label htmlFor={number} className="flex items-start gap-3 text-base font-semibold text-slate-900">
+        <span className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-800">
           {number}
         </span>
-        <span className="leading-6 text-slate-200">
+        <span className="leading-6 text-slate-700">
           {label}
-          {hint && <span className="mt-1 block text-sm font-normal text-slate-400">{hint}</span>}
+          {hint && <span className="mt-1 block text-sm font-normal text-slate-500">{hint}</span>}
         </span>
       </label>
       {children}
@@ -176,35 +176,35 @@ export default function SurveyPage() {
   );
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#05060f] text-slate-100">
-      <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_top,_rgba(48,209,149,0.18),_transparent_55%)]" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(115deg,_rgba(15,23,42,0.95),_transparent_60%)]" />
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-emerald-50 via-white to-sky-50 text-slate-900">
+      <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.25),_transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(135deg,_rgba(255,255,255,0.9),_transparent_55%)]" />
       <div className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-8 px-5 pb-16 pt-12 md:flex-row md:gap-12 md:px-10">
-        <aside className="flex flex-col gap-6 rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_25px_50px_-40px_rgba(16,163,127,0.7)] backdrop-blur-xl md:max-w-sm">
+        <aside className="flex flex-col gap-6 rounded-3xl border border-white/70 bg-white/90 p-6 shadow-xl backdrop-blur-md md:max-w-sm">
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 text-xl text-[#05060f]">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-200 via-emerald-300 to-emerald-400 text-xl text-emerald-900">
               ☺️
             </div>
             <div>
-              <p className="text-sm font-medium text-emerald-300/80">The Welcome Insight Hub</p>
-              <h1 className="text-2xl font-semibold tracking-tight text-white">더웰컴 AI 도입 설문</h1>
+              <p className="text-sm font-medium text-emerald-600">The Welcome Insight Hub</p>
+              <h1 className="text-2xl font-semibold tracking-tight text-slate-900">더웰컴 AI 도입 설문</h1>
             </div>
           </div>
-          <p className="text-sm leading-relaxed text-slate-300">
+          <p className="text-sm leading-relaxed text-slate-600">
             ChatGPT와 같은 현대적인 AI 경험에서 영감을 받은 인터페이스에서 여러분의 의견을 들려주세요. 생생한 현장 경험이 더 똑똑한 업무 환경을 만듭니다.
           </p>
-          <dl className="grid grid-cols-2 gap-4 text-sm text-slate-300">
-            <div className="space-y-1 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+          <dl className="grid grid-cols-2 gap-4 text-sm text-slate-600">
+            <div className="space-y-1 rounded-2xl border border-white/70 bg-white/90 p-4">
               <dt className="text-xs uppercase tracking-[0.25em] text-slate-500">진행 시간</dt>
-              <dd className="text-lg font-semibold text-white">약 4분</dd>
+              <dd className="text-lg font-semibold text-slate-900">약 4분</dd>
             </div>
-            <div className="space-y-1 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+            <div className="space-y-1 rounded-2xl border border-white/70 bg-white/90 p-4">
               <dt className="text-xs uppercase tracking-[0.25em] text-slate-500">응답 보안</dt>
-              <dd className="text-lg font-semibold text-white">100% 보호</dd>
+              <dd className="text-lg font-semibold text-slate-900">100% 보호</dd>
             </div>
           </dl>
-          <div className="hidden rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-4 text-sm text-emerald-200 md:block">
-            <p className="font-semibold text-emerald-100">Tip</p>
+          <div className="hidden rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-700 md:block">
+            <p className="font-semibold text-emerald-700">Tip</p>
             <p className="mt-1 leading-relaxed">한 질문씩 차근차근 답해 주세요. 모든 항목은 나중에 다시 수정할 수 있습니다.</p>
           </div>
         </aside>
@@ -212,10 +212,10 @@ export default function SurveyPage() {
         <div className="flex-1">
           {submitMessage ? (
             <div
-              className={`rounded-3xl border p-8 text-center text-base font-medium shadow-[0_25px_60px_-40px_rgba(16,163,127,0.9)] ${
+              className={`rounded-3xl border p-8 text-center text-base font-medium shadow-xl ${
                 submitMessage.includes('오류')
-                  ? 'border-red-500/30 bg-red-500/10 text-red-100'
-                  : 'border-emerald-500/40 bg-emerald-500/10 text-emerald-100'
+                  ? 'border-red-200 bg-red-50 text-red-700'
+                  : 'border-emerald-200 bg-emerald-50 text-emerald-700'
               }`}
             >
               {submitMessage}
@@ -238,7 +238,7 @@ export default function SurveyPage() {
                     value={primaryRole}
                     onChange={e => setPrimaryRole(e.target.value)}
                     placeholder="예: CES 서울관 PM, 글로벌 연수 기획"
-                    className="w-full rounded-2xl border border-slate-800 bg-[#0d0f1c] px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
+                    className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-200"
                   />
                 </FormField>
               </FormSection>
@@ -257,7 +257,7 @@ export default function SurveyPage() {
                     value={repetitiveTasks}
                     onChange={e => setRepetitiveTasks(e.target.value)}
                     rows={4}
-                    className="w-full rounded-2xl border border-slate-800 bg-[#0d0f1c] px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
+                    className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-200"
                   ></textarea>
                 </FormField>
                 {renderRadioGroup(
@@ -277,7 +277,7 @@ export default function SurveyPage() {
                     value={dataWorkExamples}
                     onChange={e => setDataWorkExamples(e.target.value)}
                     rows={4}
-                    className="w-full rounded-2xl border border-slate-800 bg-[#0d0f1c] px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
+                    className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-200"
                   ></textarea>
                 </FormField>
                 <FormField
@@ -290,7 +290,7 @@ export default function SurveyPage() {
                     value={documentWorkExamples}
                     onChange={e => setDocumentWorkExamples(e.target.value)}
                     rows={4}
-                    className="w-full rounded-2xl border border-slate-800 bg-[#0d0f1c] px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
+                    className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-200"
                   ></textarea>
                 </FormField>
                 <FormField
@@ -303,7 +303,7 @@ export default function SurveyPage() {
                     value={infoSearchDifficulty}
                     onChange={e => setInfoSearchDifficulty(e.target.value)}
                     rows={4}
-                    className="w-full rounded-2xl border border-slate-800 bg-[#0d0f1c] px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
+                    className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-200"
                   ></textarea>
                 </FormField>
               </FormSection>
@@ -322,19 +322,19 @@ export default function SurveyPage() {
                     value={aiAssistantTasks}
                     onChange={e => setAiAssistantTasks(e.target.value)}
                     rows={4}
-                    className="w-full rounded-2xl border border-slate-800 bg-[#0d0f1c] px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
+                    className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-200"
                   ></textarea>
                 </FormField>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <span className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-emerald-400/90 text-sm font-bold text-[#05060f]">
+                    <span className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-800">
                       9
                     </span>
                     <div>
-                      <p className="text-base font-semibold text-white">
+                      <p className="text-base font-semibold text-slate-900">
                         다음 중 AI 기술이 도입되었을 때, 본인의 업무에 가장 도움이 될 것 같은 기능을 모두 선택해 주세요.
                       </p>
-                      <p className="mt-1 text-sm text-slate-400">복수 선택이 가능합니다.</p>
+                      <p className="mt-1 text-sm text-slate-500">복수 선택이 가능합니다.</p>
                     </div>
                   </div>
                   <div className="grid gap-3 md:grid-cols-2">
@@ -343,8 +343,8 @@ export default function SurveyPage() {
                       return (
                         <label
                           key={option}
-                          className={`group flex cursor-pointer items-start gap-3 rounded-2xl border border-slate-800/80 bg-[#0b0d18]/80 p-4 shadow-sm transition-all duration-200 hover:border-emerald-400/60 hover:shadow-lg ${
-                            isChecked ? 'border-emerald-400/70 bg-emerald-500/10 ring-2 ring-emerald-500/30' : ''
+                          className={`group flex cursor-pointer items-start gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition-all duration-200 hover:border-emerald-300 hover:shadow-lg ${
+                            isChecked ? 'border-emerald-400 bg-emerald-50 ring-2 ring-emerald-200' : ''
                           }`}
                         >
                           <input
@@ -352,16 +352,16 @@ export default function SurveyPage() {
                             value={option}
                             checked={isChecked}
                             onChange={handleFeatureChange}
-                            className="mt-1 h-4 w-4 rounded-md border-slate-600 bg-[#05060f] text-emerald-400 focus:ring-emerald-400"
+                            className="mt-1 h-4 w-4 rounded-md border-slate-300 text-emerald-500 focus:ring-emerald-400"
                           />
-                          <span className={`text-sm leading-relaxed ${isChecked ? 'text-white font-medium' : 'text-slate-300'}`}>
+                          <span className={`text-sm leading-relaxed ${isChecked ? 'text-slate-900 font-medium' : 'text-slate-600'}`}>
                             {option}
                           </span>
                         </label>
                       );
                     })}
-                    <div className="flex flex-col gap-3 rounded-2xl border border-slate-800/80 bg-[#0b0d18]/80 p-4 shadow-sm">
-                      <label className="flex items-center gap-3 text-sm font-medium text-white">
+                    <div className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                      <label className="flex items-center gap-3 text-sm font-medium text-slate-900">
                         <input
                           type="checkbox"
                           id="other-checkbox"
@@ -373,7 +373,7 @@ export default function SurveyPage() {
                               setOtherFeature('');
                             }
                           }}
-                          className="h-4 w-4 rounded-md border-slate-600 bg-[#05060f] text-emerald-400 focus:ring-emerald-400"
+                          className="h-4 w-4 rounded-md border-slate-300 text-emerald-500 focus:ring-emerald-400"
                         />
                         기타 선택 (직접 입력)
                       </label>
@@ -384,7 +384,7 @@ export default function SurveyPage() {
                         onChange={e => setOtherFeature(e.target.value)}
                         placeholder="추가로 필요한 기능이 있다면 입력해주세요."
                         disabled={!otherFeatureChecked}
-                        className="w-full rounded-xl border border-slate-800 bg-[#05060f] px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20 disabled:cursor-not-allowed disabled:border-slate-800/60 disabled:bg-[#0b0d18]/60"
+                        className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-200 disabled:cursor-not-allowed disabled:border-slate-200 disabled:bg-slate-100"
                       />
                     </div>
                   </div>
@@ -413,7 +413,7 @@ export default function SurveyPage() {
                       value={chatgptLimit}
                       onChange={e => setChatgptLimit(e.target.value)}
                       rows={4}
-                      className="w-full rounded-2xl border border-slate-800 bg-[#0d0f1c] px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
+                      className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-200"
                     ></textarea>
                   </FormField>
                 )}
@@ -434,20 +434,20 @@ export default function SurveyPage() {
                     value={concerns}
                     onChange={e => setConcerns(e.target.value)}
                     rows={4}
-                    className="w-full rounded-2xl border border-slate-800 bg-[#0d0f1c] px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
+                    className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-200"
                   ></textarea>
                 </FormField>
               </FormSection>
 
-              <div className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-white/10 bg-white/[0.04] p-8 text-center shadow-[0_25px_50px_-40px_rgba(16,163,127,0.7)] backdrop-blur-xl">
-                <h3 className="text-2xl font-semibold tracking-tight text-white">설문 제출 준비가 되셨나요?</h3>
-                <p className="max-w-2xl text-sm text-slate-300">
+              <div className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-white/60 bg-white/90 p-8 text-center shadow-xl backdrop-blur-sm">
+                <h3 className="text-2xl font-semibold tracking-tight text-slate-900">설문 제출 준비가 되셨나요?</h3>
+                <p className="max-w-2xl text-sm text-slate-600">
                   여러분이 남겨주시는 의견은 더 나은 AI 도입 전략을 만드는 데 큰 힘이 됩니다. 마지막으로 아래 버튼을 눌러 설문을 제출해주세요.
                 </p>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group inline-flex items-center justify-center gap-3 rounded-full bg-emerald-400 px-8 py-3 text-base font-semibold text-[#05060f] shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-300 focus:outline-none focus:ring-4 focus:ring-emerald-400/40 disabled:cursor-not-allowed disabled:bg-emerald-500/40"
+                  className="group inline-flex items-center justify-center gap-3 rounded-full bg-emerald-500 px-8 py-3 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-200 disabled:cursor-not-allowed disabled:bg-emerald-200"
                 >
                   {isSubmitting ? '제출 중...' : '설문 완료 및 제출'}
                   {!isSubmitting && <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">→</span>}
